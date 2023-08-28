@@ -748,11 +748,11 @@
                 popular_anime_div = document.getElementById('popular-anime');
 
                 for (let i = 0; i < popular_anime.length; i++) {
-                    // Create the card element
+                   
                     card = document.createElement('div');
                     card.className = 'anime-popular-style';
 
-                    // Create and set the card image
+                    
 
                     anime_left_div = document.createElement('div');
                     anime_left_div.className = 'anime-popular-left';
@@ -763,8 +763,6 @@
                     anime_left_div.appendChild(card_image);
                     card.appendChild(anime_left_div);
 
-                    // Create and set the card title
-
                     anime_info_div = document.createElement('div');
                     anime_info_div.className = 'anime-info';
 
@@ -774,11 +772,10 @@
                     anime_info_div.appendChild(card_title);
                     card.appendChild(anime_info_div);
 
-                    // Append the card to the popular anime container
+                    
                     popular_anime_div.appendChild(card);
                 }
-
-                // Fetch descriptions for each anime and add to respective cards
+                
                 for (let i = 0; i < popular_anime.length; i++) {
                     anime_popular = popular_anime[i]['id'];
                     url = 'https://api.consumet.org/anime/gogoanime/info/' + anime_popular;
@@ -787,7 +784,7 @@
                         .then(data => {
                             anime_popular_des = data['description'];
 
-                            // Find the corresponding card and add the description
+                            
                             cards = document.getElementsByClassName('anime-info');
                             cards[i].innerHTML += '<p id="anime-popular-info">' + anime_popular_des + '</p>';
                         });
@@ -800,7 +797,6 @@
                         .then(data => {
                             anime_popular_des = data['totalEpisodes'];
 
-                            // Find the corresponding card and add the description
                             cards = document.getElementsByClassName('anime-info');
                             cards[i].innerHTML += '<p class="anime-popular-ep">' + 'total-episodes : ' + anime_popular_des + '</p>';
                         });
@@ -813,7 +809,7 @@
                         .then(data => {
                             anime_popular_des = data['releaseDate'];
 
-                            // Find the corresponding card and add the description
+                            
                             cards = document.getElementsByClassName('anime-info');
                             cards[i].innerHTML += '<p class="anime-popular-ep">' + 'release date : ' + anime_popular_des + '</p>';
                         });
